@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Xenon2000Clone", "Xenon2000Clone\Xenon2000Clone.vcxproj", "{59CF4C80-43E3-4F75-934E-A1AE48B70DCE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RadialEngine", "Engine\RadialEngine.vcxproj", "{20396ED5-5868-40EA-A348-5B9895D6EF38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20396ED5-5868-40EA-A348-5B9895D6EF38}.Debug|x64.ActiveCfg = Debug|x64
+		{20396ED5-5868-40EA-A348-5B9895D6EF38}.Debug|x64.Build.0 = Debug|x64
+		{20396ED5-5868-40EA-A348-5B9895D6EF38}.Release|x64.ActiveCfg = Release|x64
+		{20396ED5-5868-40EA-A348-5B9895D6EF38}.Release|x64.Build.0 = Release|x64
+		{59CF4C80-43E3-4F75-934E-A1AE48B70DCE}.Debug|x64.ActiveCfg = Debug|x64
+		{59CF4C80-43E3-4F75-934E-A1AE48B70DCE}.Debug|x64.Build.0 = Debug|x64
+		{59CF4C80-43E3-4F75-934E-A1AE48B70DCE}.Release|x64.ActiveCfg = Release|x64
+		{59CF4C80-43E3-4F75-934E-A1AE48B70DCE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {107631AF-1CD6-4E33-AA48-EC31E18359EB}
+	EndGlobalSection
+EndGlobal

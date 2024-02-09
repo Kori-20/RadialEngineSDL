@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{20396ed5-5868-40ea-a348-5b9895d6ef38}</ProjectGuid>
+    <RootNamespace>MegaEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RE_PLATFORM_WINDOWS;RE_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>box2d.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;SDL2_ttf.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>box2d.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(SolutionDir)bin\Debug-x64\RadialEngine\RadialEngine.dll" "$(SolutionDir)bin\Debug-x64\Xenon2000Clone\RadialEngine.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>box2d.lib;SDL2.lib;SDL2_image.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>box2d.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="SDL2_ttf.dll" />
+    <None Include="src\Shaders\SimpleShader.shader" />
+    <None Include="zlib1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\UserInterface\Font.h" />
+    <ClInclude Include="src\UserInterface\TextUI.h" />
+    <ClInclude Include="src\OpenGL\AnimatorComponent.h" />
+    <ClInclude Include="src\OpenGL\SpriteComponent.h" />
+    <ClInclude Include="src\OpenGL\OpenGLErrorHandler.h" />
+    <ClInclude Include="src\Render\Renderer.h" />
+    <ClInclude Include="src\OpenGL\ShaderHandler.h" />
+    <ClInclude Include="src\OpenGL\OpenGlWrapper.h" />
+    <ClInclude Include="src\Physics\CollisionDrawer.h" />
+    <ClInclude Include="src\Physics\BoxCollision.h" />
+    <ClInclude Include="src\Physics\CircleCollision.h" />
+    <ClInclude Include="src\Physics\PhysicsWorld.h" />
+    <ClInclude Include="src\Physics\RigidBody.h" />
+    <ClInclude Include="src\Physics\Collider.h" />
+    <ClInclude Include="src\Physics\ContactListener.h" />
+    <ClInclude Include="src\Level\LevelManager.h" />
+    <ClInclude Include="src\Level\Level.h" />
+    <ClInclude Include="src\SDL\SDLSpriteComponent.h" />
+    <ClInclude Include="src\SDL\SDLAnimatorComponent.h" />
+    <ClInclude Include="src\ECS\Entity.h" />
+    <ClInclude Include="src\ECS\EntityManager.h" />
+    <ClInclude Include="src\ECS\ECS.h" />
+    <ClInclude Include="src\ECS\Pawn.h" />
+    <ClInclude Include="src\ECS\Component.h" />
+    <ClInclude Include="src\Input\Controller.h" />
+    <ClInclude Include="src\Input\InputHandler.h" />
+    <ClInclude Include="src\ECS\GameObject.h" />
+    <ClInclude Include="src\GameSide\GameSettings.h" />
+    <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\EntryPoint.h" />
+    <ClInclude Include="src\Core\App.h" />
+    <ClInclude Include="src\Core\EngineCore.h" />
+    <ClInclude Include="src\Aid\InitError.h" />
+    <ClInclude Include="src\Aid\Logger.h" />
+    <ClInclude Include="src\Aid\MathTools.h" />
+    <ClInclude Include="src\SDL\SDLWrapper.h" />
+    <ClInclude Include="src\GameSide\Radial.h" />
+    <ClInclude Include="src\Aid\Transform.h" />
+    <ClInclude Include="src\Window.h" />
+    <ClInclude Include="src\SDL\SDLTextureManager.h" />
+    <ClInclude Include="src\Render\TextureManager.h" />
+    <ClInclude Include="src\ECS\TextComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\UserInterface\Font.cpp" />
+    <ClCompile Include="src\UserInterface\TextUI.cpp" />
+    <ClCompile Include="src\OpenGL\AnimatorComponent.cpp" />
+    <ClCompile Include="src\OpenGL\SpriteComponent.cpp" />
+    <ClCompile Include="src\Render\Renderer.cpp" />
+    <ClCompile Include="src\OpenGL\ShaderHandler.cpp" />
+    <ClCompile Include="src\OpenGL\OpenGlWrapper.cpp" />
+    <ClCompile Include="src\Physics\CollisionDrawer.cpp" />
+    <ClCompile Include="src\Physics\BoxCollision.cpp" />
+    <ClCompile Include="src\Physics\CircleCollision.cpp" />
+    <ClCompile Include="src\Physics\PhysicsWorld.cpp" />
+    <ClCompile Include="src\Physics\RigidBody.cpp" />
+    <ClCompile Include="src\Physics\Collider.cpp" />
+    <ClCompile Include="src\Physics\ContactListener.cpp" />
+    <ClCompile Include="src\Level\LevelManager.cpp" />
+    <ClCompile Include="src\Level\Level.cpp" />
+    <ClCompile Include="src\SDL\SDLSpriteComponent.cpp" />
+    <ClCompile Include="src\SDL\SDLAnimatorComponent.cpp" />
+    <ClCompile Include="src\ECS\EntityManager.cpp" />
+    <ClCompile Include="src\ECS\Pawn.cpp" />
+    <ClCompile Include="src\Input\Controller.cpp" />
+    <ClCompile Include="src\Input\InputHandler.cpp" />
+    <ClCompile Include="src\ECS\GameObject.cpp" />
+    <ClCompile Include="src\GameSide\GameSettings.cpp" />
+    <ClCompile Include="src\Core\App.cpp" />
+    <ClCompile Include="src\Core\EngineCore.cpp" />
+    <ClCompile Include="src\Render\glad.c" />
+    <ClCompile Include="src\Aid\InitError.cpp" />
+    <ClCompile Include="src\Aid\Logger.cpp" />
+    <ClCompile Include="src\Aid\MathTools.cpp" />
+    <ClCompile Include="src\SDL\SDLWrapper.cpp" />
+    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\SDL\SDLTextureManager.cpp" />
+    <ClCompile Include="src\Render\TextureManager.cpp" />
+    <ClCompile Include="stb.cpp" />
+    <ClCompile Include="src\ECS\TextComponent.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
